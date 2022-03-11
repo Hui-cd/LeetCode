@@ -5,9 +5,24 @@
 
  * */
 public class TwoNumberSum {
-    public int[] twoSum(int[] nums, int target) {
-        for(int i=0;i<nums.length;i++){
+    public static int[] twoSumMethod1(int[] nums, int target) {
+        int length = nums.length;
+        for(int i=0;i<length;i++){
+            for (int j = 0; j< length;j++){
+            if ( nums [i]+ nums[j] == target){
+                return new int[] {i,j};
+            }
+            }
+        }
+        return new int[0];
+    }
 
+    public static void main(String[] args) {
+        int[] nums = {1,2,3,4,5,5,6,6,7};
+        int target = 3;
+        int [] result = twoSumMethod1(nums,target);
+        for (int i = 0; i < result.length;i++){
+            System.out.println(result[i]+"");
         }
     }
 }
