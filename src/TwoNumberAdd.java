@@ -50,7 +50,6 @@ public class TwoNumberAdd {
         ListNode result = twoNumberAdd.addTwoNumbers(l1,l2);
         while(result!= null){
             System.out.println(result.val);
-//            System.out.println(11%10);
             result = result.next;
         }
     }
