@@ -34,8 +34,8 @@ public class FindMedianSortedArrays {
             k++;
 
         }
-        while(i<length2){
-            nums[k] = nums1[j];
+        while(j<length2){
+            nums[k] = nums2[j];
             j++;
             k++;
 
