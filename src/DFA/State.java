@@ -1,5 +1,6 @@
+package DFA;
+
 import java.util.HashMap;
-import java.util.Stack;
 
 public class State {
     private char accept;
