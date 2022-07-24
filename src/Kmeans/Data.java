@@ -10,18 +10,15 @@ import java.util.stream.IntStream;
 
 public class Data {
 
-
-    ArrayList<ArrayList<String>> columns = new ArrayList<ArrayList<String>>();
-    BufferedReader reader = null;
-    String currentLine;
     Map<String,String> keyParam = new HashMap<>();
+    ArrayList<HashMap<String, String>> allData = new ArrayList<>();
 
 
     public Data(){
     }
 
 
-    public Map<String, String> ingest(String pathname) throws IOException {
+    public ArrayList<HashMap<String, String>> ingest(String pathname) throws IOException {
         BufferedReader input = new BufferedReader(new FileReader(pathname));
         String key = input.readLine();
         List<String> keys = Arrays.stream(key.split(",")).collect(Collectors.toList());
@@ -35,9 +32,10 @@ public class Data {
                 continue;
             }
              keyParam = IntStream.range(0,values.size()).collect(HashMap::new,(m,i)->m.put(keys.get(i),values.get(i)),HashMap::putAll);
+            allData.add((HashMap<String, String>) keyParam);
         }
         input.close();
-        return keyParam;
+        return allData;
 
     }
 
