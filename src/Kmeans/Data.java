@@ -13,11 +13,12 @@ public class Data {
     Map<String,String> keyParam = new HashMap<>();
     ArrayList<HashMap<String, String>> allData = new ArrayList<>();
 
-
-    public Data(){
-    }
-
-
+    /**
+     * 读取数据文件 并将数据存储到allData中 并将数据的key和value存储到keyParam中
+     * @param pathname 数据文件路径
+     * @return 数据文件中的数据
+     * @throws IOException
+     */
     public ArrayList<HashMap<String, String>> ingest(String pathname) throws IOException {
         BufferedReader input = new BufferedReader(new FileReader(pathname));
         String key = input.readLine();
@@ -37,6 +38,22 @@ public class Data {
         input.close();
         return allData;
 
+    }
+
+    /**
+     * 获取数据之间的距离 并返回最小的距离
+     * @param x
+     * @param y
+     * @return
+     */
+    public double getDistance(HashMap<String, String>x, HashMap<String, String>y){
+        double distance = 0;
+        for(String key:x.keySet()){
+            if(x.get(key)!=null&&y.get(key)!=null){
+                distance += Math.pow(Double.parseDouble(x.get(key))-Double.parseDouble(y.get(key)),2);
+            }
+        }
+       return Math.sqrt(distance);
     }
 
     public static void main(String[] args) throws IOException {
