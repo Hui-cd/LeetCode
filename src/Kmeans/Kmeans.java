@@ -19,6 +19,7 @@ public class Kmeans {
     public HashMap<HashMap<String, String>,HashMap<String, String>> clustersMap;
 
     public void centreCalculation() {
+        try {
         HashMap<String, String> current = new HashMap<>();
         //计算每个点到质心的距离
         for (HashMap<String, String> point : points) {
@@ -35,6 +36,10 @@ public class Kmeans {
             pointMinDistance.add(minDistanceMap);
             clustersMap.put(current, point);
             clusters.add(clustersMap);
+            System.out.println(clusters);
+
+        }}catch (Exception e){
+            e.printStackTrace();
         }
     }
     public Kmeans(String pathname,int k) {
@@ -56,4 +61,8 @@ public class Kmeans {
         }
     }
 
+    public static void main(String[] args) {
+        Kmeans kmeans = new Kmeans("/Users/hui/IdeaProjects/LeetCode/src/Kmeans/housing.csv",3);
+        kmeans.centreCalculation();
+    }
 }

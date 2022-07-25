@@ -48,10 +48,13 @@ public class Data {
      */
     public double getDistance(HashMap<String, String>x, HashMap<String, String>y){
         double distance = 0;
-        for(String key:x.keySet()){
+        try {
+            for(String key:x.keySet()){
             if(x.get(key)!=null&&y.get(key)!=null){
                 distance += Math.pow(Double.parseDouble(x.get(key))-Double.parseDouble(y.get(key)),2);
             }
+        }}catch (Exception e){
+            e.printStackTrace();
         }
        return Math.sqrt(distance);
     }
