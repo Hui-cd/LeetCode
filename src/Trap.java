@@ -9,23 +9,28 @@
  */
 public class Trap{
     public int trap(int[] height) {
-        int left =0;
+        int left = 0;
+        int right = height.length - 1;
+        int leftMax = 0;
+        int rightMax = 0;
         int sum = 0;
-        int right = getBigger(height, left);
-        for(left =0;left<(height.length-2);left++){
-            
-
-        }
-        return sum;
-    }
-    public int getBigger(int[] height,int index){
-        int i = 0;
-        for(i=index;i<height.length;i++){
-            if(height[i]>height[index]){
-                return height[i];
+        while (left < right) {
+            if (height[left] < height[right]) {
+                if (height[left] >= leftMax) {
+                    leftMax = height[left];
+                } else {
+                    sum += leftMax - height[left];
+                }
+                left++;
+            } else {
+                if (height[right] >= rightMax) {
+                    rightMax = height[right];
+                } else {
+                    sum += rightMax - height[right];
+                }
+                right--;
             }
         }
-        return 0;
-
+        return sum;
     }
 }
