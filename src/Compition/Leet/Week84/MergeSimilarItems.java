@@ -23,10 +23,11 @@ import java.util.List;
 public class MergeSimilarItems {
     public List<List<Integer>> mergeSimilarItems(int[][] items1, int[][] items2) {
         int[][] ret;
+        int sum =0;
         for(int i = 0; i<= items1.length;i++){
             for (int j = 0; j<= items2.length;j++){
                 if (items1[i][0] == items2[j][0] ) {
-
+                    sum+=items1[i][1]+items2[j][1];
                 }
             }
         }
