@@ -1,5 +1,5 @@
 public class Palindrome {
-    public boolean palindromeString(String s){
+    public boolean palindromeStringRec(String s){
         int headPoint =0;
         int tailPoint = s.length()-1;
         if ((s==null || s.length()==0)&&headPoint<tailPoint) {
@@ -16,14 +16,14 @@ public class Palindrome {
         if((s.charAt(headPoint)==s.charAt(tailPoint))&&(headPoint<tailPoint)){
             headPoint++;
             tailPoint--;
-            return palindromeString(s.substring(1,s.length()-1));
+            return palindromeStringRec(s.substring(1,s.length()-1));
         }
         return true;
     }
 
     public static void main(String[] args) {
         Palindrome p = new Palindrome();
-        System.out.println(p.palindromeString("abcba"));
-        System.out.println(p.palindromeString("bb"));
+        System.out.println(p.palindromeStringRec("abcba"));
+        System.out.println(p.palindromeStringRec("bb"));
     }
 }
