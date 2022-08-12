@@ -1,5 +1,7 @@
 package Compition.Leet.Week84;
 
+import java.util.HashMap;
+
 /**
  * 给你一个下标从 0 开始的正整数数组 tasks ，表示需要 按顺序 完成的任务，其中 tasks[i] 表示第 i 件任务的 类型 。
  *
@@ -31,7 +33,41 @@ package Compition.Leet.Week84;
  * 可以证明无法少于 9 天完成所有任务。
  */
 public class TaskSchedulerII {
+    /**
+     *
+     *         贪心+HashMap:
+     *         注意:任务要按顺序完成
+     *         HashMap存储下一次能做任务key的最早时间是第几天
+     *         例如第一天做了任务1，那么要相隔3天，下一个能做任务1的最短时间就是第5天
+     *         维护一个当前的天数cur，遍历当前的任务列表
+     *         1.当cur能完成时task[i]时(map中存在该天数或者cur>=map[task[i]]) 当天完成该任务 cur++ 并更新map的天数
+     *         2.当cur不能完成时task[i]时(cur<map[task[i]]) 此时只能等到map[task[i]]那天，直接cur=map[task[i]]然后完成，cur++
+     *             并更新map对应的天数
+     *         当遍历完最后一个时，返回cur-1就是答案
+     *
+     * @param tasks
+     * @param space
+     * @return
+     */
     public long taskSchedulerII(int[] tasks, int space) {
-        return 0;
+        HashMap<Integer, Integer> tasksMap = new HashMap<>();
+        long cur = 1;
+        for (int k: tasks){
+            if (tasksMap.containsKey(k)&& cur < tasksMap.get(k)){
+                cur = tasksMap.get(k);
+            }
+            tasksMap.put(k, (int) (cur+ space+1));
+            cur++;
+        }
+        System.out.println(tasksMap);
+        System.out.println(cur);
+        return cur-1;
+    }
+
+    public static void main(String[] args) {
+        TaskSchedulerII taskSchedulerII = new TaskSchedulerII();
+        int[] tasks = {1,2,1,2,3,1};
+        int space =3;
+        taskSchedulerII.taskSchedulerII(tasks,space);
     }
 }
