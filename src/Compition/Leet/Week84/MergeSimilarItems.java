@@ -1,5 +1,8 @@
 package Compition.Leet.Week84;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -21,16 +24,31 @@ import java.util.List;
  */
 
 public class MergeSimilarItems {
+    /**
+     * 解题思路 可以用hashmap的特性进行合并
+     * @param items1
+     * @param items2
+     * @return
+     */
     public List<List<Integer>> mergeSimilarItems(int[][] items1, int[][] items2) {
-        int[][] ret;
-        int sum =0;
-        for(int i = 0; i<= items1.length;i++){
-            for (int j = 0; j<= items2.length;j++){
-                if (items1[i][0] == items2[j][0] ) {
-                    sum+=items1[i][1]+items2[j][1];
-                }
-            }
+        HashMap<Integer, Integer> ret = new HashMap<>();
+        for (int i = 0; i< items1.length;i++){
+            ret.put(items1[i][0],ret.getOrDefault(items1[i][0],0)+ items1[i][1]);
         }
-        return null;
+
+        for (int i = 0; i< items2.length;i++){
+            ret.put(items2[i][0],ret.getOrDefault(items2[i][0],0)+ items2[i][1]);
+        }
+        List<List<Integer>> result = new LinkedList<>();
+        Object[] keyList = ret.keySet().toArray();
+        Arrays.sort((keyList));
+        for (Object key: keyList){
+            Integer val = (Integer) key;
+            List<Integer> ls = new LinkedList<>();
+            ls.add(val);
+            ls.add(ret.get(val));
+            result.add(ls);
+        }
+        return result;
     }
 }

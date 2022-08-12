@@ -19,7 +19,19 @@ package Compition.Leet.Week84;
  */
 
 public class MinimumReplacement {
+    /**
+     * 解题思路 贪心算法 建立数学模型
+     * @param nums
+     * @return
+     */
     public long minimumReplacement(int[] nums) {
-        return 0;
+        var ans = 0L;
+        var m = nums[nums.length - 1];
+        for (var i = nums.length - 2; i >= 0; --i) {
+            var k = (nums[i] - 1) / m;
+            ans += k;
+            m = nums[i] / (k + 1);
+        }
+        return ans;
     }
 }
