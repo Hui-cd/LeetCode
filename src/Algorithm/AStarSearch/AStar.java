@@ -1,4 +1,4 @@
-package Algorithm;
+package Algorithm.AStarSearch;
 
 import java.util.ArrayList;
 import java.util.List;

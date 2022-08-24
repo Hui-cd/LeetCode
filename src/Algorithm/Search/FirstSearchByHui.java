@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class FirstSearch {
+/**
+ * @author hui
+ */
+public class FirstSearchByHui {
 
     public Optional<Node<Object>> breadthFirstSearch(Node<Object> node, Object value){
         if (node.getValue().equals(value)) {

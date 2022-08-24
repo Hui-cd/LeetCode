@@ -1,8 +1,8 @@
-package Algorithm.test;
+package Algorithm.AStarSearch.test;
 
-import Algorithm.AStar;
-import Algorithm.Map;
-import Algorithm.Node;
+import Algorithm.AStarSearch.AStar;
+import Algorithm.AStarSearch.Map;
+import Algorithm.AStarSearch.Node;
 
 public class AstarTest {
     public final static int BAR = 1; // 障碍值

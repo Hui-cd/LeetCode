@@ -1,4 +1,4 @@
-package Algorithm;
+package Algorithm.AStarSearch;
 
 public class Map {
     public int[][] maps; // 二维数组的地图

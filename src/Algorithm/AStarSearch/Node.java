@@ -1,4 +1,4 @@
-package Algorithm;
+package Algorithm.AStarSearch;
 
 public class Node implements Comparable<Node> {
     public Coord coord; // 坐标

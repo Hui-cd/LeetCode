@@ -1,4 +1,4 @@
-package Algorithm;
+package Algorithm.AStarSearch;
 
 public class Coord {
     public int x;
