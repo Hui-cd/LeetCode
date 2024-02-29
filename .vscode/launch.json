@@ -2,6 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "twoSums",
+            "request": "launch",
+            "mainClass": "twoSums",
+            "projectName": "LeetCode_3e346904"
+        },
+        {
             "name": "(Windows) Launch",
             "type": "cppvsdbg",
             "request": "launch",
