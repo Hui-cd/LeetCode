@@ -2,5 +2,6 @@
     "files.associations": {
         "*.cmake": "cmake",
         "Trap.C": "cpp"
-    }
+    },
+    "java.debug.settings.onBuildFailureProceed": true
 }

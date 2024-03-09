@@ -5,6 +5,13 @@
             "type": "java",
             "name": "twoSums",
             "request": "launch",
+            "mainClass": "java.twoSums",
+            "projectName": "LeetCode_3e346904"
+        },
+        {
+            "type": "java",
+            "name": "twoSums",
+            "request": "launch",
             "mainClass": "twoSums",
             "projectName": "LeetCode_3e346904"
         },
