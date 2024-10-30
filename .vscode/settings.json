@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "*.cmake": "cmake",
-        "Trap.C": "cpp",
-        "stdio.h": "c"
-    },
-    "java.debug.settings.onBuildFailureProceed": true
-}
